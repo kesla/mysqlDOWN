@@ -6,7 +6,7 @@ module.exports = {
       return [
           'CREATE DATABASE IF NOT EXISTS ' + databaseName + ';'
         , 'USE ' + databaseName + ';'
-        , 'CREATE TABLE IF NOT EXISTS ' + tableName + ' (',
+        , 'CREATE TABLE IF NOT EXISTS ' + tableName + ' ('
           , '`id` int(11) NOT NULL AUTO_INCREMENT,'
           , '`value` blob,'
           , '`key` blob,'
