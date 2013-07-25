@@ -1,0 +1,21 @@
+{
+  "name": "mysqlDOWN",
+  "author": "David Björklund <david.bjorklund@gmail.com> (http://davidbjorklund.se)",
+  "description": "A wrapper over mysql that can be used in levelup",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/kesla/mysqlDOWN.git"
+  },
+  "main": "mysqldown.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "dependencies": {
+    "abstract-leveldown": "~0.7.2",
+    "mysql": "~2.0.0-alpha8"
+  },
+  "devDependencies": {
+    "tap": "~0.4.0"
+  },
+  "licence": "MIT"
+}
