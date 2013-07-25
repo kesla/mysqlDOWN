@@ -46,7 +46,7 @@ var util              = require('util')
         query.push('ORDER BY `key` ASC')
       }
 
-      if (options.limit)
+      if (options.limit && options.limit !== -1)
         query.push('LIMIT ' + options.limit)
 
       db._streamingQuery(query.join('\n'), function(err, s) {
