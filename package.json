@@ -1,7 +1,7 @@
 {
-  "name": "mysqlDOWN",
+  "name": "mysqldown",
   "author": "David Björklund <david.bjorklund@gmail.com> (http://davidbjorklund.se)",
-  "description": "A wrapper over mysql that can be used in levelup",
+  "description": "An drop-in replacement for LevelDOWN that works in mysql",
   "version": "0.0.0",
   "repository": {
     "url": "git://github.com/kesla/mysqlDOWN.git"
