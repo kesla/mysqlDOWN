@@ -13,15 +13,29 @@ var util              = require('util')
 function MysqlDOWN (location) {
   AbstractLevelDOWN.call(this, location)
 
+  var parsed = url.parse(location)
+    , parsedPath = parsed.path.split('/').filter(Boolean)
+    , auth = parsed.auth
+    , user = null
+    , password = null
+
+  if (auth !== null && auth.indexOf(':') > 0) {
+
+    auth = auth.split(':')
+    user = auth[0]
+    password = auth[1] || ''
+  }
+
   this.pool = mysql.createPool({
-      host: '127.0.0.1'
-    , user: 'root'
-    , password: ''
+      host: parsed.hostname
+    , port: parsed.port
+    , user: user
+    , password: password
     , multipleStatements: true
   })
 
-  this.database = location.split('/')[0]
-  this.table = location.split('/')[1]
+  this.database = parsedPath[0]
+  this.table = parsedPath[1]
 }
 
 // our new prototype inherits from AbstractLevelDOWN
