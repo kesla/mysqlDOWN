@@ -52,9 +52,6 @@ var util              = require('util')
       db._streamingQuery(query.join('\n'), function(err, s) {
         self._foobar = s
         s.pipe(self._stream)
-        s.once('close', function() {
-          throw new Error('CLOSE')
-        })
       })
     }
 
