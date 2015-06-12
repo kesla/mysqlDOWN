@@ -49,7 +49,7 @@ MysqlDOWN.prototype._query = function(query, callback) {
       connection.query(
           query
         , function(err, result) {
-            connection.end()
+            connection.release()
             callback(err, result)
           }
       )
@@ -65,7 +65,7 @@ MysqlDOWN.prototype._streamingQuery = function(query, callback) {
     else {
       stream = connection.query(query).stream({highWaterMark: 100})
       stream.once('end', function() {
-        connection.end()
+        connection.release()
       })
       callback(null, stream)
     }
@@ -94,7 +94,7 @@ MysqlDOWN.prototype._open = function(options, callback) {
 }
 
 MysqlDOWN.prototype._close = function(callback) {
-  this.pool.end(callback)
+  this.pool.release(callback)
 }
 
 MysqlDOWN.prototype._put = function(key, value, options, callback) {
